@@ -9,6 +9,7 @@ import nltk, os, subprocess, code, glob, re, traceback, sys
 try:
     nltk.download('punkt')
     nltk.download('words')
+    nltk.download('averaged_perceptron_tagger')
     nltk.download('maxent_ne_chunker')
 except:
     pass
