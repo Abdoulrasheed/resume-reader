@@ -7,6 +7,7 @@ import nltk, os, subprocess, code, glob, re, traceback, sys
 
 
 try:
+    nltk.download('punkt')
     nltk.download('words')
     nltk.download('maxent_ne_chunker')
 except:
