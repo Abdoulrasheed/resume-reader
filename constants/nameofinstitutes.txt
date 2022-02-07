@@ -1,0 +1,7 @@
+institute
+university
+college
+management
+school
+engineering
+technology
