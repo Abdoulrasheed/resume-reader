@@ -351,7 +351,7 @@ class Parse():
     def Qualification(self, inputString, infoDict, debug=False):
         degree = []
         
-        with open('constants/qualifications.csv') as csv_file:
+        with open(settings.BASE_DIR / 'constants/qualifications.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             for row in csv_reader:
                 self.getQualification(self.inputString, infoDict, row[0], row[1])
