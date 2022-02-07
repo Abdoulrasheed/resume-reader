@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 import csv
 from pprint import pprint
-import nltk, os, subprocess, code, glob, re, traceback, sys
+from django.conf import settings
 from .utils import convertDocxToText, convertPDFToText
+import nltk, os, subprocess, code, glob, re, traceback, sys
+
 
 try:
     nltk.download('words')
@@ -212,7 +214,7 @@ class Parse():
         '''
 
         # Read Names from the file, reduce all to lower case for easy comparision [Name lists]
-        names = open("constants/names.txt", "r").read().lower()
+        names = open(settings.BASE_DIR / "constants/names.txt", "r").read().lower()
         # Lookup in a set is much faster
         names = set(names.split())
         
@@ -296,7 +298,7 @@ class Parse():
     def getQualification(self, inputString, infoDict, D1, D2):
         #key=list(qualification.keys())
         qualification={'school': '', 'year': ''}
-        nameofinstitutes = open('constants/nameofinstitutes.txt','r').read().lower() #open file which contains keywords like institutes, university usually fond in institute names
+        nameofinstitutes = open(settings.BASE_DIR / 'constants/nameofinstitutes.txt', 'r').read().lower() #open file which contains keywords like institutes, university usually fond in institute names
         nameofinstitutes = set(nameofinstitutes.split())
         instiregex=r'INSTI: {<DT.>?<NNP.*>+<IN.*>?<NNP.*>?}'
         chunkParser = nltk.RegexpParser(instiregex)
