@@ -7,7 +7,7 @@ lxml==4.7.1
 nltk==3.6.7
 numpy
 pdfminer==20191125
-Pillow==9.0.0
+Pillow
 pycryptodome==3.13.0
 python-dateutil==2.8.2
 python-docx==0.8.11
