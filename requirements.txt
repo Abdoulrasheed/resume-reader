@@ -2,7 +2,6 @@ click==8.0.3
 Django==3.2.12
 djangorestframework==3.13.1
 Faker==12.1.0
-importlib-metadata==4.10.1
 joblib==1.1.0
 lxml==4.7.1
 nltk==3.6.7
