@@ -2,7 +2,7 @@
 
 ## Supports PDF, DOC, DOCX
 
-### Extract
+### Extract:
 
     -names
     -qualifications
