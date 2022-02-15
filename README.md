@@ -6,6 +6,7 @@
 
     -names
     -qualifications
+    -skills
     -email
     -phone number
     -schools
