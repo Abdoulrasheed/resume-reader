@@ -39,6 +39,8 @@ class Parse():
         self.getPhone(self.inputString, info)
 
         self.getName(self.inputString, info)
+        
+        self.getSkills(info)
 
         self.Qualification(self.inputString, info)
 
@@ -207,7 +209,7 @@ class Parse():
             print("\n", pprint(infoDict), "\n")
             code.interact(local=locals())
         return number
-
+    
     def getName(self, inputString, infoDict, debug=False):
         '''
         Given an input string, returns possible matches for names. Uses regular expression based matching.
@@ -270,6 +272,17 @@ class Parse():
             print("\n", pprint(infoDict), "\n")
             code.interact(local=locals())
         return name, othernames
+
+    def getSkills(self, infoDict):
+        skills = open(settings.BASE_DIR / "constants/skills.txt", "r").read().title()
+        
+        skills = set(skills.splitlines())
+        othernamesLower = [name.title() for name in infoDict['othernames']]
+        detectedSkills = [skill.title() for skill in skills if skill in othernamesLower]
+        
+        infoDict['skills'] = detectedSkills
+        infoDict['othernames'] = set([name.title() for name in othernamesLower if name not in detectedSkills])
+        return detectedSkills
     
     def getExperience(self, inputString, infoDict, debug=True):
         experience=[]
